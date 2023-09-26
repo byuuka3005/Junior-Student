@@ -1,4 +1,4 @@
-# Tiến trình và cơ chế liên lạc giữa các tiến trình
+# Tiến trình và cơ chế liên lạc liên tiến trình
 
 ## Khái niệm tiến trình
 - Chương trình: mã lệnh được viết bằng các ngôn ngữ lặp trình &rarr; biên dịch &rarr; Object code &rarr; liên kế với các thư viện &rarr; Mã lệnh có thể thực thi (Đối tượng tĩnh)
