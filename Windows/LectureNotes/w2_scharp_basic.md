@@ -4,11 +4,11 @@
 
 - Tránh ngắt chương trình đột ngột để viết unit test
 - Kết quả của hàm nên dồn vào một biến để dễ debug
-- Tránh dùng `var` cho kiểu dữ liệu không rõ ràng
+- Tránh dùng `var` cho kiểu dữ liệu không rõ ràng 
 - Sử dụng `#region` để nhóm các phần code liên quan (`ctrl + k, ctrl + s` để bao quanh code bằng `#region`)
-- Cẩn thận khi chia cho 0
-- Nếu có quyền nói thì nói (`Write`), không có thì thì la (`throw Exception`)
-- Mẫu `Builder` thường dùng để lấy API, truy vấn lấy dữ liệu từ database, ...
+- Cẩn thận khi chia cho 0 
+- Nếu có quyền nói thì nói (`Write`), không có thì thì la (`throw Exception`) 
+- Mẫu `Builder` thường dùng để lấy API, truy vấn lấy dữ liệu từ database,...
 
 ## Generic
 
