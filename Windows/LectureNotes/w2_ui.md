@@ -1,4 +1,4 @@
-# Giao giện (tiếp theo)
+# Giao diện (tiếp theo)
 
 ## Lưu ảnh
 

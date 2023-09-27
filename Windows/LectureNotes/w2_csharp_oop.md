@@ -24,6 +24,7 @@
 class Student
 {
     // fields
+    // có nhiều cách viết getter/setter khác nhau
     private string _firstName { get; set; };
     private string _lastName { get; set; };
     private string _phone;
@@ -38,6 +39,8 @@ class Student
         get => _phone;
         set => _phone = value; 
     }
+
+
 
     
     public string FullName => $"{_firstName} {_lastName}";
