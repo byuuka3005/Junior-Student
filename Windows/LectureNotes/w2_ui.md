@@ -13,7 +13,7 @@
 ```
 - Mục đích là để giảm dung lượng của app khi build
 
-- Để hiên thị ảnh khi khởi tạo cửa sổ (window) thì thêm vào trong file `xaml` thuộc tính `Loaded` của thẻ `Window` và gọi hàm `Window_Loaded` trong file `cs`
+- Để hiển thị ảnh khi khởi tạo cửa sổ (window) thì thêm vào trong file `xaml` thuộc tính `Loaded` của thẻ `Window` và gọi hàm `Window_Loaded` trong file `cs`
 
 ```xml
     <Window x:Class="WpfApp1.MainWindow"
@@ -35,6 +35,8 @@
     2. Chuột phải vào đoạn code cần Extract và chọn `Quick Actions and Refactorings` &rarr; `Extract Method`
     3. Chọn tab `Edit` &rarr; `Refactor` &rarr; `Extract Method`
     4. Nhấn tổ hợp phím `Ctrl + .` và chọn `Extract Method` (hoặc nhấn `Enter`)
+
+- Rebuild project hoặc solution 
 
 ## Tạo màn hình mới
 - Tạo màn hình mới `NewWindow.xaml` bằng cách nhấn chuột phải vào project và chọn `Add` &rarr; `Window (WPF)`
