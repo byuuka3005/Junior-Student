@@ -37,7 +37,7 @@
     4. Nhấn tổ hợp phím `Ctrl + .` và chọn `Extract Method` (hoặc nhấn `Enter`)
 
 ## Tạo màn hình mới
-- Tạo màn hình mới `NewWindow.xaml` bằng cách nhấn chuột phải vào thư mục `Windows` và chọn `Add` &rarr; `Window (WPF)`
+- Tạo màn hình mới `NewWindow.xaml` bằng cách nhấn chuột phải vào project và chọn `Add` &rarr; `Window (WPF)`
 - Trong màn hình chính gọi màn hình mới bằng cách
 
 ```cs
