@@ -76,7 +76,7 @@
         // Lambda expression / Lambda operator – anonymous method
         int Doubl(int x) => x * 2; 
         // tương đương với
-        public int Double(int x){return x * 2;}
+        public int Doubl(int x){return x * 2;}
 
         // giả sử có danh sách sinh viên _students
         private List<Student> _students;
