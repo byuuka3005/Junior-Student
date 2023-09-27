@@ -13,6 +13,29 @@
 ```
 - Mục đích là để giảm dung lượng của app khi build
 
+- Để hiên thị ảnh khi khởi tạo cửa sổ (window) thì thêm vào trong file `xaml` thuộc tính `Loaded` của thẻ `Window` và gọi hàm `Window_Loaded` trong file `cs`
+
+```xml
+    <Window x:Class="WpfApp1.MainWindow"
+        ...
+        Loaded="Window_Loaded">
+```
+
+- Trong file `cs` thêm hàm `Window_Loaded` và code hiển thị ảnh
+
+```cs
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+        //Code hiển thị ảnh
+    }
+```
+
+- Phần code hiển thị ảnh có thể được Extract thành hàm riêng, để Extract trong Ms Visual Studio, bôi đen phần code muốn Extract, sau đó chọn 1 trong các cách sau:
+    1. Nhấn tổ hợp phím `Ctrl + R, Ctrl + M` 
+    2. Chuột phải vào đoạn code cần Extract và chọn `Quick Actions and Refactorings` &rarr; `Extract Method`
+    3. Chọn tab `Edit` &rarr; `Refactor` &rarr; `Extract Method`
+    4. Nhấn tổ hợp phím `Ctrl + .` và chọn `Extract Method` (hoặc nhấn `Enter`)
+
 ## Tạo màn hình mới
 - Tạo màn hình mới `NewWindow.xaml` bằng cách nhấn chuột phải vào thư mục `Windows` và chọn `Add` &rarr; `Window (WPF)`
 - Trong màn hình chính gọi màn hình mới bằng cách
