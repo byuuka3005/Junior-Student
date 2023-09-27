@@ -1,2 +1,2 @@
 # Junior-Student
-Markdown note cho năm 3
+Markdown note của concho bck :>
