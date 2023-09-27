@@ -60,7 +60,7 @@ class Student
 namespace Example {
     public static class StringExtension {
         public static bool IsEmpty(this string str) {
-            return string.IsNullOrEmpty(str);
+            return str.Length == 0;
         }
     }
 }
