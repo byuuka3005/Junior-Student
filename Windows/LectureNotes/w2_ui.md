@@ -41,8 +41,8 @@
 - Trong màn hình chính gọi màn hình mới bằng cách
 
 ```cs
-    var quizWindow = new QuizWindow();
-    quizWindow.Show();
+    var newWindow = new NewWindow();
+    newWindow.Show();
 
     //Đóng màn hình hiện tại
     this.Close();
