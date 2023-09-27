@@ -173,6 +173,7 @@
     Console.WriteLine($"Quotient = {result.Item1}, Remainder = {result.Item2}");
 
     string path = @"C:\Windows\Dev\data.rar";
+    // chuỗi bắt đầu bằng @ là chuỗi không cần escape các ký tự đặc biệt như \ 
 
     // viết một hàm trả về đường dẫn chứa thư mục, tên file và phần mở rộng
     public Tuple<string, string, string> GetPathInfo(string path) {
