@@ -52,7 +52,7 @@ class Student
 ```
 
 ## Mở rộng kiến thức về lớp
-- Extension method
+- Extension method: một số lớp sẽ có thêm các method mà không cần phải thay đổi code của lớp đó. Ví dụ thông thường lớp `string` không có method `IsEmpty` nhưng ta có thể thêm method này bằng cách tạo một lớp mới và thêm method vào lớp đó.
 ```cs
 namespace Example {
     public static class StringExtension {
@@ -61,5 +61,14 @@ namespace Example {
         }
     }
 }
+
+// sử dụng
+using Example;
+// ... 
+    string str1 = "Hello";
+    string str2 = "";
+    str.IsEmpty(); // false
+    str2.IsEmpty(); // true
+
 ```
 
