@@ -43,15 +43,22 @@
 - Trong màn hình chính gọi màn hình mới bằng cách
 
 ```cs
-    var newWindow = new NewWindow();
-    newWindow.Show();
 
-    //Đóng màn hình hiện tại
-    this.Close();
+    // Có thể tạo một button để gọi màn hình mới, ví dụ:
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        var newWindow = new NewWindow();
+        newWindow.Show();
+        
+        //Đóng màn hình hiện tại
+        this.Close();
+    }
+
+
 ```
 
 ## Bài tập về nhà
-- Cái tiến chương trình học từ vứng: 
+- Cái tiến chương trình học từ vựng: 
     - Thêm chế độ quiz bằng cách tạo thêm màn hình quiz và thêm nút vào màn hình chính để chuyển sang màn hình quiz 
     - Hình thức quiz là trắc nghiệm 1 hình 2 từ hoặc 1 từ 2 hình, chọn phương án đúng 
     - Màn hình hiển thị số câu đúng trên cùng theo format `[số câu đúng]/[tổng số câu]`
