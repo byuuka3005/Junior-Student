@@ -39,8 +39,11 @@
             - Dễ quản lí tiến độ
             - Dễ đánh giá kết quả
             - Phù hợp với các hệ thống có tính tương tác cao
+            - Giảm được chi phí khi đáp ứng yêu cầu
             - Phù hợp với các hệ thống có tính thay đổi cao
         - Nhược điểm:
+            - Quy trình không rõ ràng
+            - Cấu trúc giảm đi vì phần mới được thêm vào
             - Không phù hợp với các hệ thống lớn
         <img src="img/w2_evolution_procss.png" title="Mô hình phấn triển dần dần">
     - **Mô hình phát triển phần mềm theo hướng tái sử dụng (Reuse-oriented development model)**: 
