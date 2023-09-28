@@ -106,4 +106,5 @@
         - **Chuyên môn - Profession**: phải nỗ lực để nâng cao chuyên môn
         - **Đồng nghiệp - Colleagues**: phải hành động với sự tôn trọng đồng nghiệp
         - **Bản thân - Self**: phải hành động với sự tôn trọng bản thân
-    
+
+    <img src="img/w2_project_actual.png" title="Cách mà một phần mềm được phát triển">
