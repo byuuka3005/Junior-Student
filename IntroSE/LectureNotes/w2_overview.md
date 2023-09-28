@@ -74,7 +74,6 @@
 - Là những hệ thống phức tạp
 - Những nguyên tắc cơ bản của Công nghệ phần mềm vẫn áp dụng được vào web
 - Tuy nhiên giao diện người dùng bị hạn chế bởi trình duyệt
-
 - Các công nghệ phần mềm web
     - HTML, CSS, JavaScript
     - Các framework: React, Angular, Vue, ...
@@ -82,3 +81,29 @@
     - Các công nghệ backend: NodeJS, ASP.NET, Spring, ...
     - Các công nghệ cơ sở dữ liệu: MySQL, MongoDB, ...
     - Các công nghệ khác: Docker, Kubernetes, ...
+
+## Đạo đức nghề nghiệp
+- Các vấn đề đạo đức trong CNPM: 
+    - Ngoài kĩ năng ra, còn đòi hỏi trách nhiệm nghề nghiệp
+    - Trung thực và có trách nhiệm về đạo đức
+    - Không chỉ đơn thuần là tuân thủ pháp luật mà còn liên quan đến các chuẩn mực đạo đức
+
+- Trách nhiệm nghề nghiệp
+    - Bảo mật
+    - Năng lực
+    - Quyền sở hữu trí tuệ
+    - Lạm dụng máy tính (??)
+
+- Quy tắc đạo đức ACM/IEEE
+    - Được đưa ra bởi hiệp hội chuyên nghiệp ở Mĩ
+    - Các thành viên cam kết tuân thủ các nguyên tắc họ đặt ra
+    - Có 8 nguyên tắc liên quan đến hành vi và các quyết định của kĩ sư phần mềm chuyên nghiệp:
+        - **Công khai - Public**: phải công khai các yếu tố quan trọng của phần mềm
+        - **Khách quan - Client and Employer**: phải hành động với sự công bằng và trung thực
+        - **Sản phẩm - Product**: phải đảm bảo rằng sản phẩm đáp ứng các tiêu chuẩn chất lượng
+        - **Đảm bảo chất lượng - Judgement**: phải đảm bảo rằng các quyết định của mình đều được đưa ra một cách công bằng
+        - **Quản lý - Management**: phải quản lý dự án một cách chuyên nghiệp
+        - **Chuyên môn - Profession**: phải nỗ lực để nâng cao chuyên môn
+        - **Đồng nghiệp - Colleagues**: phải hành động với sự tôn trọng đồng nghiệp
+        - **Bản thân - Self**: phải hành động với sự tôn trọng bản thân
+    
