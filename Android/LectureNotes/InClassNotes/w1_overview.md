@@ -17,7 +17,7 @@ Lưu ý:
 - Lí thuyết ck: 40%
 - Bonus:        10%
 ---------------------
-    Tổng            110%
+    Tổng        110%
 
 # Một số ý chính về Android
 ## Quá trình tiến hoá của điện thoại
