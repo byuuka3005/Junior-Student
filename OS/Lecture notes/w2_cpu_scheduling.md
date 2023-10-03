@@ -2,7 +2,7 @@
 ## Chu kì CPU và chu kì nhập xuất
 - Một tiến trình bao gồm 2 quá trình cơ bản là nhập xuất và xử lí
 
-- Thử tục điều phối
+- Thủ tục điều phối
     <img src="w2img/schedule_proc.png">
 
 - Bộ định thời là một phần của hệ điều hành, quản lí việc chuyển đổi giữa các tiến trình:
@@ -22,8 +22,13 @@
 ****Các tiêu chí trên là không đồng thời thoả mãn*
 
 ### Các loại điều phối
-    - Điều phối độc quyền
-    - Điều phối không độc quyền
+- Điều phối độc quyền - Không thương lượng (Non-preemptive)
+    - Tiến trình được thực thi cho đến khi kết thúc, thiếu tài nguyên hoặc chuyển sang trạng thái chờ
+    - Công bằng, không ưu tiên
+    - Có thể dẫn đến hiện tượng đói (starvation)
+- Điều phối không độc quyền - Có thương lượng, hợp tác (Preemptive)
+    - Tiến trình có thể bị ngắt bất cứ lúc nào để chuyển sang tiến trình khác có độ ưu tiên cao hơn
+    - Có thể dẫn đến hiện tượng đói (starvation)
 
 
 

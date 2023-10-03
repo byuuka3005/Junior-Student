@@ -190,5 +190,3 @@ tools:context="csu.matos.gui_demo.MainActivity" >
 - Fixing bleeding background color
 
 # Bài tập về nhà
-- Tạo một ứng dụng đơn giản, có giao diện như sau:
-    <img src="w2/homework.png">
