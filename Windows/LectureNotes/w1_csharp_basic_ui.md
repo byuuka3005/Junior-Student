@@ -127,3 +127,6 @@ namespace ConsoleApp1 {
 * Xem trong [slide](https://docs.google.com/presentation/d/1k0JBWqt8ofjMUnD2HezRo8YII0Nwoiyk/edit#slide=id.p1)
 * Hiện thị các câu nói tạo động lực kèm hình ảnh (Yêu cầu 15 câu)
 * Hiển thị từ vựng ngẫu nhiên với hình ảnh (Yêu cầu tối thiểu 15 từ)
+
+# Link demo 
+* [Link demo](https://drive.google.com/file/d/1eU9ZDKjhpzxbEeKM6Jp5vobZYNAnIG1h/view?usp=drive_link)

@@ -13,36 +13,13 @@
     <img src="w3img/fcfs.png">
 
 Vd:
-    <table>
-        <tr>
-            <th>Process</th>
-            <th>Arrival Time</th>
-            <th>Burst Time</th>
-            <th>Turnaround Time</th>
-            <th>Waiting Time</th>
-        </tr>
-        <tr>
-            <td>P1</td>
-            <td>0</td>
-            <td>24</td>
-            <td>24</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>P2</td>
-            <td>1</td>
-            <td>5</td>
-            <td>29</td>
-            <td>23</td>
-        </tr>
-        <tr>
-            <td>P3</td>
-            <td>2</td>
-            <td>3</td>
-            <td>31</td>
-            <td>27</td>
-        </tr>
-    </table>
+
+| Process | Arrival Time | Burst Time | Turnaround Time | Waiting Time |
+|---------|--------------|------------|-----------------|--------------|
+| P1  | 0 | 24  | 24   | 0   |
+| P2  | 1 | 5   | 29   | 23  |
+| P3  | 2 | 3   | 31   | 27  |
+
 Turnaround time = Thời gian hoàn thành - Thời gian đến
 Waiting time = Thời gian chờ đợi = Thời gian hoàn thành - Thời gian đến  - Thời gian thực thi
 
@@ -61,12 +38,13 @@ Vd: với q = 4
 | P3  | 2 | 3   | 9    | 6   |
 
 ### Thuật toán SJF (Shortest Job First) và SRTF (Shortest Remaining Time First)
-- SJF: Thuộc nhóm điều phối độc quyền (non-preemptive)
-- SRTF: Thuộc nhóm điều phối không độc quyền (preemptive)
+- `SJF`: Thuộc nhóm điều phối độc quyền (non-preemptive)
+- `SJF`: Nếu có tiến trình mới có thời gian thực thi ngắn hơn thì tiến trình đang thực thi sẽ không bị ngắt (Chung thuỷ)
+- `SJF`: Có thể dẫn đến hiện tượng đói (starvation)
+- `SRTF`: Thuộc nhóm điều phối không độc quyền (preemptive)
 - Tiến trình có thời gian thực thi ngắn nhất được thực thi trước
-- SJF: Nếu có tiến trình mới có thời gian thực thi ngắn hơn thì tiến trình đang thực thi sẽ không bị ngắt (Chung thuỷ)
-- SRTF: Nếu có tiến trình mới có thời gian thực thi ngắn hơn thì tiến trình đang thực thi sẽ bị ngắt để thực thi tiến trình mới (Có mới nói cũ)
-- SJF: Có thể dẫn đến hiện tượng đói (starvation)
+- `SRTF`: Nếu có tiến trình mới có thời gian thực thi ngắn hơn thì tiến trình đang thực thi sẽ bị ngắt để thực thi tiến trình mới (Có mới nói cũ)
+
     <img src="w3img/sjf.png">
 
 Ví dụ: SRFT
@@ -81,6 +59,7 @@ Ví dụ: SRFT
 - Tiến trình có độ ưu tiên cao nhất được thực thi trước
 - Nếu có tiến trình mới có độ ưu tiên cao hơn thì tiến trình đang thực thi sẽ bị ngắt để thực thi tiến trình mới
 - Có thể dẫn đến hiện tượng đói (starvation) &rarr; giải pháp `Aging`: độ ưu tiên động (độ ưu tiên tăng dần theo thời gian chờ đợi)
+
 
 Ví dụ:
 | Process | Arrival Time | Burst Time | Priority | Turnaround Time | Waiting Time |
