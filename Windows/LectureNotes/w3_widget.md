@@ -17,7 +17,7 @@
 
 #### Icon 
 Nhấn chuột phải vào Project &rarr; Application &rarr; Icon &rarr; Chọn file 
-
+- [Trang icon](https://www.flaticon.com/) mà thầy dùng 
 - Để thay đổi icon của ứng dụng, ta thay đổi thuộc tính `Icon` của `Window` trong file `MainWindow.xaml`
 ```xml
 <Window x:Class="WPFAppDemo.MainWindow"

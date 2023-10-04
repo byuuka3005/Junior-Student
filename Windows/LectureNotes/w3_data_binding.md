@@ -90,6 +90,7 @@
                             new PropertyChangedEventArgs("Credit"));
                     }
                 }
+                public event PropertyChangedEventHandler PropertyChanged;
             }
             public MainWindow()
             {
@@ -100,7 +101,6 @@
                 this.DataContext = student;
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
         }
     ```
 - Cái đó viết dài dòng vậy thôi, mình có thể nhờ trình biên dịch làm cho mình bằng cách sử dụng `Fody` và `PropertyChanged.Fody`
