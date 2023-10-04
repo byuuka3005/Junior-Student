@@ -117,4 +117,8 @@
         }
     ```
 
-    
+
+# Bài tập về nhà
+- Do data binding for a book: Book’s name, Cover’s image, Author, Published Year
+- Do data binding for a mobile phone: Phone’s name, Image, Manufacturer, Price
+- Do data binding for an employee: Fullname, Email, Address, Telephone number, Avatar’s image
