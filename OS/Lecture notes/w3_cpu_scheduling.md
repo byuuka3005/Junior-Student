@@ -78,6 +78,7 @@ Ví dụ:
 ### Một số thuật toán khác
 - Lottery Scheduling
 - Fair Share Scheduling
+        
 
 ## Một số bài tập
 - [Đề](w3doc/BTLT2_CPU_Scheduling.pdf) và [bài giải](w3doc/bt.xlsx) 
