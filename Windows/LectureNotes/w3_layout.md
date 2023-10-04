@@ -32,3 +32,10 @@
 - `LastChildFill` để thiết lập widget cuối cùng có chiếm hết không gian của parent hay không
 - Các widget có thể bị che khuất
 - Độ ưu tiên (được vẽ trên) khi các widget bị chồng chất nhau là thằng nằm trên con lớn nhất `first child`.
+
+# Bài tập về nhà
+Thực hiện vẽ giao diện các trang web sau bằng các layout:
+  
+  <img src="../Img/w3_panel_hw1.png">
+  <img src="../Img/w3_panel_hw2.png">
+  <img src="../Img/w3_panel_hw3.png">
