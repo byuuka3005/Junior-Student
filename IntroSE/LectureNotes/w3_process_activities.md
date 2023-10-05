@@ -29,7 +29,7 @@
 - Cải thiện khả năng bảo trì hệ thống.
 - Giảm bớt nỗ lực phát triển.
 
-<img src="LectureNotes/img/w3_prototype.png" title="Quy trình phát triển nguyên bản">
+<img src="img/w3_prototype.png" title="Quy trình phát triển nguyên bản">
 
 ### Phát triển nguyên bản
 
@@ -49,7 +49,7 @@ chuẩn chất lượng về mặt tổ chức.
 
 ## Chuyển giao dần dần
 
-<img src="LectureNotes/img/w3_increment_delivery.png">
+<img src="img/w3_increment_delivery.png">
 
 ### Ưu điểm
 - Khách hàng sớm được bàn giao sản phẩm (từng phần).
@@ -60,7 +60,7 @@ chuẩn chất lượng về mặt tổ chức.
 
 ## Mô hình xoắn ốc Boehm (Boehm's spiral model)
 
-<img src="LectureNotes/img/w3_spiral_model.png">
+<img src="img/w3_spiral_model.png">
 
 - Mỗi sector bao gồm:
     - Xác định mục tiêu
@@ -70,7 +70,7 @@ chuẩn chất lượng về mặt tổ chức.
 
 ## Quy trình RUP (Rational Unified Process)
 
-<img src="LectureNotes/img/w3_rup.png" title="Quy trình RUP">
+<img src="img/w3_rup.png" title="Quy trình RUP">
 
 - Gồm 4 pha:
     - **Khởi đầu (Inception)**: xác định phạm vi và mục tiêu của dự án
