@@ -10,7 +10,7 @@
 - `Orientation` để thiết lập chiều dọc hoặc chiều ngang hoặc chiều dọc
     - `Horizontal`: các widget được đặt theo chiều ngang
     - `Vertical`: các widget được đặt theo chiều dọc
-- Width và Height của các widget được thiết lập tương ứng với `Width` và `Height` của `StackPanel`, chiều còn lại là `Auto` (như `wrap_content` trong Android) 
+- Width và Heigxht của các widget được thiết lập tương ứng với `Width` và `Height` của `StackPanel`, chiều còn lại là `Auto` (như `wrap_content` trong Android) 
 - Khi không đủ chỗ hiển thị các widget, các widget sẽ bị che khuất
 
 ## WrapPanel
