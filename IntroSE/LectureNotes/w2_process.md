@@ -31,7 +31,9 @@
             - Không phù hợp với các hệ thống lớn
             - Không phù hợp với các hệ thống có tính tương tác cao
             - Không phù hợp với các hệ thống có tính thay đổi cao
+          
     <img src="img/w2_waterfall_procss.png" title="Mô hình thác nước">
+    
     - **Mô hình phát triển phần mềm tiến hóa (Evolutionary development model)**: 
         - Mô hình phát triển phần mềm tiến hóa là mô hình phát triển phần mềm theo hướng tiến hóa, các hoạt động được thực hiện tuần tự từ đầu đến cuối nhưng có thể thay đổi theo yêu cầu của khách hàng. Các hoạt động được thực hiện đan xen nhau. Lấy phản hồi nhanh từ khách hàng
         - Ưu điểm:
@@ -47,6 +49,7 @@
             - Không phù hợp với các hệ thống lớn
             
         <img src="img/w2_evolution_procss.png" title="Mô hình phấn triển dần dần">
+        
     - **Mô hình phát triển phần mềm theo hướng tái sử dụng (Reuse-oriented development model)**: 
         - Mô hình phát triển phần mềm theo hướng tái sử dụng là mô hình phát triển phần mềm theo hướng tái sử dụng các thành phần đã được phát triển trước đó
         - Ưu điểm:
