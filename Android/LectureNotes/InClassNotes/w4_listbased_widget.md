@@ -203,3 +203,31 @@ public class MainActivity extends Activity implements TextWatcher {
  </LinearLayout>
 </HorizontalScrollView>
 ```
+```java
+public class MainActivity extends Activity {
+    HorizontalScrollView horizontalScrollView;
+    LinearLayout linearLayout;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontalScrollView);
+        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        // step 1: set click listener for linear layout
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // step 2: set click listener for horizontal scroll view
+        horizontalScrollView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+```
+```
