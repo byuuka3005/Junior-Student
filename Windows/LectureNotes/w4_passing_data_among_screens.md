@@ -199,11 +199,21 @@ private void Edit_Click(object sender, RoutedEventArgs e)
 {
     Color color = (Color)lvColors.SelectedItem;
     EditWindow EditWindow = new EditWindow(color);
-    // từ từ khúc này chưa xong, để về viết tiếp
-    EditWindow.OnColorChanged += ()
+    // bắt sự kiện của silider và chuyển nó cho EditWindow
+    EditWindow.OnColorChanged += (int sender, EventArgs e) => {
+        color.Opacity = EditWindow.Opacity;
+    };
     if(EditWindow.ShowDialog().Value== true)
     {
         color = EditWindow.Color;
     }
 }
 ```
+
+# Bài tập về nhà
+- Do data binding for **a list** of books: Book’s name, Cover’s image, Author, Published Year
+- Do data binding for **a list** of mobile phones: Phone’s name, Image, Manufacturer, Price
+- Do data binding for **a list** of employees: Fullname, Email, Address, Telephone number, Avatar’s image
+
+- Sử dụng ComboBox hoặc ListView
+<br> Prepare at least 10 items, Add, Delete, Update (hard code data)

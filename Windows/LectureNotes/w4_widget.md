@@ -102,7 +102,7 @@ Hoặc định nghĩa ItemTemplate trong XAML
                 Width="16"
                 RenderOptions.BitmapScalingMode="HighQuality"
                 Source="{Binding Image}"
-                />3
+                />
             <TextBlock Text=" {Binding Name}"/>
         </StackPanel>
     </DataTemplate>
@@ -187,7 +187,7 @@ hoặc dựa trên index
     Height="200"
     Width="200" Canvas.Left="300" Canvas.Top="192"
     >
-    <ListView.Itemtemplate>
+    <ListView.ItemTemplate>
         <DataTemplate>
             <StackPanel Orientation="Vertical">
                 <Image
@@ -199,7 +199,7 @@ hoặc dựa trên index
                 <TextBlock Text=" {Binding Name}"/>
             </StackPanel>
         </DataTemplate>
-    </ListView.Itemtemplate>
+    </ListView.ItemTemplate>
 </ListView>
 ```
 
@@ -239,7 +239,7 @@ và dùng StackPanel thay cho StackPanel
     Width="200" Canvas.Left="300" Canvas.Top="192"
     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
     >
-    <!-- dùng warp panel-->
+    <!-- dùng wrap panel-->
     <ListView.ItemsPanel>
         <ItemsPanelTemplate>
             <WrapPanel/>
@@ -251,7 +251,7 @@ và dùng StackPanel thay cho StackPanel
 ```
 
 ### Handle ContextMenu
-
+- ContextMenu là menu hiện ra nhi nhấp chuột phải vào một phần tử trong ListView
 ```xml
 <ListView
     x:Name="lvColors"
@@ -259,7 +259,7 @@ và dùng StackPanel thay cho StackPanel
     Width="200" Canvas.Left="300" Canvas.Top="192"
     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
     >
-    <!-- dùng warp panel-->
+    <!-- dùng wrap panel-->
     <ListView.ItemsPanel>
         <ItemsPanelTemplate>
             <WrapPanel/>
@@ -268,7 +268,6 @@ và dùng StackPanel thay cho StackPanel
     <!-- ... -->
     <ListView.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="Add" Click="MenuItem_Click"/>
             <MenuItem Header="Edit" Click="MenuItem_Click"/>
             <MenuItem Header="Remove" Click="MenuItem_Click"/>
         </ContextMenu>
@@ -278,7 +277,6 @@ và dùng StackPanel thay cho StackPanel
 ```cs
     private void MenuItem_Click(object sender, RoutedEventArgs e)
     {
-        // MenuItem có thể là Student, Color, hoặc bất cứ kiểu nào mà ListView đang hiển thị
         Color menuItem = lvColors.SelectedItem as Color;
         if (menuItem != null)
         {
@@ -294,35 +292,33 @@ và dùng StackPanel thay cho StackPanel
         }
     }
 ```
-- ItemContainerStyle
 
+- Hoặc có thể cho mỗi lựa chọn trong context menu một hàm khác nhau, như `Edit` sẽ gọi hàm `EditColor` còn `Remove` sẽ gọi hàm `RemoveColor`
+
+- Khi nhấn chuột phải vào một phần tử trong ListView, phải chuyển phần tử bắt sự kiện sang ListView item bằng
+ItemContainerStyle
+
+- Trước tiên, tạo một ListView.Resource để chứa ContextMenu
 ```xml
-<ListView
-    x:Name="lvColors"
-    Height="200"
-    Width="200" Canvas.Left="300" Canvas.Top="192"
-    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-    >
-    <!-- dùng warp panel-->
-    <ListView.ItemsPanel>
-        <ItemsPanelTemplate>
-            <WrapPanel/>
-        </ItemsPanelTemplate>
-    </ListView.ItemsPanel>
+<ListView>
     <!-- ... -->
-    <ListView.ContextMenu>
-        <ContextMenu>
-            <ContextMenu.ItemContainerStyle>
-                <Style TargetType="x:Type ListViewItem">
-                    <Setter Property="ContextMenu"
-                            Value="{StaticResource ResourceKey=ColorContextMenu}">                       
-                    </Setter>
-                </Style>
-            </ContextMenu.ItemContainerStyle>
+    <ListView.Resources>
+        <ContextMenu x:Key="ItemContextMenu">
+
+            <MenuItem Header="Thêm" Click="AddItem_Click"/>
+            <MenuItem Header="Xoá" Click="RemoveItem_Click"/>
+            <MenuItem Header="Sửa" Click="EditItem_Click"/>
+
         </ContextMenu>
-    </ListView.ContextMenu>
+    </ListView.Resources>
+
+    <ListView.ItemContainerStyle>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}"/>
+        </Style>
+    </ListView.ItemContainerStyle>
 </ListView>
-
-
-
-- Có thể cho mỗi lựa chọn trong context menu một hàm khác nhau, như `Edit` sẽ gọi hàm `EditColor` còn `Remove` sẽ gọi hàm `RemoveColor`
+```
+- Ý nghĩa của cái đống quỷ sứ ở trên là
+    - Thiết lập một (static resource) `ContextMenu` cho mỗi `ListViewItem` bằng cách định nghĩa `ContextMenu` trong `ListView.Resources`, đặt tên là `ItemContextMenu` để khúc sau truy cập.
+    - Sau đó thiết lập `ContextMenu` cho mỗi `ListViewItem` bằng cách định nghĩa `ItemContainerStyle`. Trong `ItemContainerStyle` ta thiết lập `Style` cho `ListViewItem`, đặt `TargetType` là `ListViewItem` và thiết lập `ContextMenu` là `ItemContextMenu` (đã định nghĩa ở trên) trong `Setter` của `Style`
