@@ -1,5 +1,5 @@
 # Truyền dữ liệu giữa các màn hình 
-(Tiếp nối [w4_widget](w4_widget.md))
+(Đọc [w4_widget](w4_widget.md) trước)
 
 ## Public Static Property
 
@@ -8,7 +8,8 @@
 - Tạo một class mới có tên là `Color`, kế thừa Interface `ICloneable` để thực hiện Deep Copy
 
 ```csharp
-class Color : INotifyPropertyChanged, ICloneable
+// Lưu ý chuyển class Color sang public
+public class Color : INotifyPropertyChanged, ICloneable
 {
     public string Name { get; set; }
     public event PropertyChangedEventHandler PropertyChanged;
@@ -35,35 +36,21 @@ class Color : INotifyPropertyChanged, ICloneable
 
 - Khi bấm chuột phải chọn `Edit` trong context menu, Bên phía gửi `MainWindow` (hàm handle thao tác `Edit`) gọi hàm tạo của `EditWindow` và truyền dữ liệu vào
 
-
 ```csharp
 private void Edit_Click(object sender, RoutedEventArgs e)
 {
     Color color = (Color)lvColors.SelectedItem;
-    EditWindow EditWindow = new EditWindow(color);
-    if(EditWindow.ShowDialog().Value== true)
+    EditWindow editWindow = new EditWindow(color);
+    if(editWindow.ShowDialog().Value == true)
     {
-        color = EditWindow.Color;
-    }
-}
-```
-
-- Hoặc sử dụng Extension Method để lấy giá trị trả về của `EditWindow` (hàm handle thao tác `Edit`)
-```csharp
-private void Edit_Click(object sender, RoutedEventArgs e)
-{
-    Color color = (Color)lvColors.SelectedItem;
-    EditWindow EditWindow = new EditWindow(color);
-    if(EditWindow.ShowDialog().Value== true)
-    {
-        EditWindow.ReturnedColor.CopyPropertiesTo(color);
+        editWindow.ReturnedColor.CopyPropertiesTo(color);
+        // Xem định nghĩa của hàm CopyPropertiesTo ở phần sau
     }
 }
 ```
 
 
-- Bên phía nhận `EditWindow` nhận dữ liệu
-trong hàm tạo
+- Bên phía nhận `EditWindow` nhận dữ liệu trong hàm tạo
 
 ```csharp
 public partial class EditWindow : Window
@@ -73,7 +60,7 @@ public partial class EditWindow : Window
     public EditWindow(Color color)
     {
         InitializeComponent();
-        editingColor = (Color)color.Clone();
+        editingColor = color.Clone() as Color;
         this.DataContext = editingColor;
     }
 }
@@ -95,13 +82,14 @@ public partial class EditWindow : Window
     
     private void Save_Click(object sender, RoutedEventArgs e)
     {
-        ReturnedColor = editingColor;
         this.DialogResult = true;
+        Close();
     }
     
     private void Cancel_Click(object sender, RoutedEventArgs e)
     {
         this.DialogResult = false;
+        Close();
     }
 }
 ```
@@ -148,6 +136,40 @@ public partial class EditWindow : Window
         // do some thing
     }
 
+```
+
+### Deep copy
+- Tạo một class Reflection để thực hiện Deep Copy mà không tạo thêm clone của đối tượng
+```cs
+
+    public static class Reflection {
+        public static void CopyProperties(this object source, object target) {
+            Type sourceType = source.GetType();
+            Type targetType = target.GetType();
+
+            var sourceProps = source.GetType().GetProperties();
+
+            foreach (var sourceProp in sourceProps) {
+                if (!sourceProp.CanRead) continue;
+                var targetProp = targetType.GetProperty(sourceProp.Name);
+                if (targetProp == null) continue;
+                if (!targetProp.CanWrite) continue;
+                if ((targetProp.GetSetMethod(true) != null)
+                    && (targetProp.GetSetMethod(true).IsPrivate)) {
+                    continue;
+                }
+
+                if ((targetProp.GetSetMethod()?.Attributes
+                    & System.Reflection.MethodAttributes.Static) != 0) 
+                    continue;
+                if (!targetProp.PropertyType.IsAssignableFrom(sourceProp.PropertyType)) 
+                    continue;
+
+                // Pass all tests, let's assign
+                targetProp.SetValue(target, sourceProp.GetValue(source, null), null);
+            }
+        }
+    }
 ```
 
 ### Truyền dữ liệu bằng Delegate và Event
