@@ -18,8 +18,42 @@ public class Color : INotifyPropertyChanged, ICloneable
         return this.MemberwiseClone();
     }
 }
-
 ```
+
+### Deep copy
+- Tạo một class Reflection để thực hiện Deep Copy mà không tạo thêm clone của đối tượng. 
+```cs
+
+    public static class Reflection {
+        public static void CopyProperties(this object source, object target) {
+            Type sourceType = source.GetType();
+            Type targetType = target.GetType();
+
+            var sourceProps = source.GetType().GetProperties();
+
+            foreach (var sourceProp in sourceProps) {
+                if (!sourceProp.CanRead) continue;
+                var targetProp = targetType.GetProperty(sourceProp.Name);
+                if (targetProp == null) continue;
+                if (!targetProp.CanWrite) continue;
+                if ((targetProp.GetSetMethod(true) != null)
+                    && (targetProp.GetSetMethod(true).IsPrivate)) {
+                    continue;
+                }
+
+                if ((targetProp.GetSetMethod()?.Attributes
+                    & System.Reflection.MethodAttributes.Static) != 0) 
+                    continue;
+                if (!targetProp.PropertyType.IsAssignableFrom(sourceProp.PropertyType)) 
+                    continue;
+
+                // Pass all tests, let's assign
+                targetProp.SetValue(target, sourceProp.GetValue(source, null), null);
+            }
+        }
+    }
+```
+
 - Tạo một `ListView` hiển thị các `Color` trong file `MainWindow.xaml`
 
 
@@ -44,7 +78,7 @@ private void Edit_Click(object sender, RoutedEventArgs e)
     if(editWindow.ShowDialog().Value == true)
     {
         editWindow.ReturnedColor.CopyPropertiesTo(color);
-        // Xem định nghĩa của hàm CopyPropertiesTo ở phần sau
+        // Xem định nghĩa của hàm CopyPropertiesTo ở phần trước
     }
 }
 ```
@@ -138,39 +172,6 @@ public partial class EditWindow : Window
 
 ```
 
-### Deep copy
-- Tạo một class Reflection để thực hiện Deep Copy mà không tạo thêm clone của đối tượng
-```cs
-
-    public static class Reflection {
-        public static void CopyProperties(this object source, object target) {
-            Type sourceType = source.GetType();
-            Type targetType = target.GetType();
-
-            var sourceProps = source.GetType().GetProperties();
-
-            foreach (var sourceProp in sourceProps) {
-                if (!sourceProp.CanRead) continue;
-                var targetProp = targetType.GetProperty(sourceProp.Name);
-                if (targetProp == null) continue;
-                if (!targetProp.CanWrite) continue;
-                if ((targetProp.GetSetMethod(true) != null)
-                    && (targetProp.GetSetMethod(true).IsPrivate)) {
-                    continue;
-                }
-
-                if ((targetProp.GetSetMethod()?.Attributes
-                    & System.Reflection.MethodAttributes.Static) != 0) 
-                    continue;
-                if (!targetProp.PropertyType.IsAssignableFrom(sourceProp.PropertyType)) 
-                    continue;
-
-                // Pass all tests, let's assign
-                targetProp.SetValue(target, sourceProp.GetValue(source, null), null);
-            }
-        }
-    }
-```
 
 ### Truyền dữ liệu bằng Delegate và Event
 - Tạo một thuộc tính `OnColorChanged` kiểu `EventHandler` trong class `EditWindow`
