@@ -37,10 +37,24 @@
 FragmentManager fragmentManager = getSupportFragmentManager();
 // Step 2: Begin a new FragmentTransaction
 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-// Step 3: Create and add a new Fragment, BlueFragment extended from Fragment
+// Step 3: Create and add a new Fragment, BlueFragment is extended from Fragment
 FragmentBlue fragment = FragmentBlue.newInstance("Hello", "World");
-// Step 4: Add the Fragment to the layout
+// Step 4: Add the Fragment to the layout, R.id.main_holder_blue is a FrameLayout
 fragmentTransaction.add(R.id.main_holder_blue, fragment);
 // Step 5: Commit the FragmentTransaction
 fragmentTransaction.commit();
 ```
+
+## Operations on Fragments (Các thao tác trên Fragment)
+
+- `add()`: Thêm một Fragment vào Activity. Nếu một activity được khởi động lại vì một thay đổi cấu hình, thì các Fragment được thêm vào sẽ được khôi phục lại.
+
+- `remove()`: Xóa một Fragment khỏi Activity. Fragment sẽ bị destroy nếu nó không được thêm vào back stack.
+
+- `replace()`: Thay thế một Fragment bằng một Fragment khác. Fragment hiện tại sẽ bị destroy nếu nó không được thêm vào back stack.
+
+- `hide()`: Ẩn một Fragment. Fragment sẽ không bị destroy và sẽ được hiển thị lại khi được gọi phương thức `show()`. 
+
+- `attach()`: Gắn một Fragment vào Activity. Fragment sẽ không bị destroy và sẽ được hiển thị lại khi được gọi phương thức `detach()`. 
+
+- `addToBackStack()`: Thêm một Fragment vào back stack. Nếu một Fragment được thêm vào back stack, khi nhấn nút back trên thiết bị, Fragment sẽ được hiển thị lại.
