@@ -126,8 +126,8 @@ command.Parametes.Add("@User", OleDbType.NVarChar).Value = "";
 ### 3. Thực thi câu truy vấn
 - Các kiểu lệnh có thể thực thi:
     - `ExecuteNonQuery`: thực thi các câu lệnh `INSERT`, `UPDATE`, `DELETE`, không có giá trị trả về
-    - `ExecuteScalar`: thực thi các câu lệnh `SELECT` trả về <span style="color: red">**một**</span> giá trị duy nhất
-    - `ExecuteReader`: thực thi các câu lệnh `SELECT` trả về <span style="color: red">**nhiều**</span> giá trị
+    - `ExecuteScalar`: thực thi các câu lệnh `SELECT` trả về <span style="color: red"><u>**một**</u></span> giá trị duy nhất
+    - `ExecuteReader`: thực thi các câu lệnh `SELECT` trả về <span style="color: red"><u>**nhiều**</u></span> giá trị
 
 - Command cho phép thực thi các câu lệnh trên
 ```cs
