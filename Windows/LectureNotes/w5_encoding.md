@@ -30,3 +30,15 @@ var password = Encoding.UTF8.GetString(cypherInByte);
 // gán lại vào màn hình login
 txtPassword.Text = password;
 ```
+```cs
+    var passwordIn64 = ConfigurationManager.AppSettings["password"];
+    if(passwordIn64 != "") {
+        var cyphertext = Convert.FromBase64String(passwordIn64);
+        var entropy = Convert.FromBase64String(ConfigurationManager.AppSettings["entropy"]);
+        var cypherInByte = ProtectedData.Unprotect(cyphertext, entropy, DataProtectionScope.CurrentUser);
+        var password = Encoding.UTF8.GetString(cypherInByte);
+        // gán lại vào màn hình login
+        txtPassword.Text = password;
+    }
+
+```
