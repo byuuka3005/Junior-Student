@@ -1,6 +1,6 @@
 # Hệ quản trị cơ sở dữ liệu SQL Server
 
-## Các thao tác cơ bản trong Azure Data Studio
+## Các thao tác cơ bản trong Azure Data Studio và SQL Server Management Studio
 
 ### Tạo cơ sở dữ liệu
 
@@ -14,39 +14,82 @@ hoặc dùng snippet `sqlCreateDatabase` rồi nhập tên csdl
 
 ### Backup và restore cơ sở dữ liệu
 #### Backup
+- Backup bằng UI: Chuột phải vào csdl &rarr; `Back Up`, chọn các tùy chọn sau đó bấm `Backup`
 - Backup bằng lệnh: `BACKUP DATABASE [QLSV] TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak' WITH NOFORMAT, NOINIT, NAME = N'QLSV-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10`
 
-- Trong đó:
-    - `BACKUP DATABASE [QLSV]`: backup csdl `QLSV`
-    - `TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak'`: lưu vào đường dẫn `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak`
-    - `WITH NOFORMAT, NOINIT, NAME = N'QLSV-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10`: các tùy chọn khác
-        - `NOFORMAT`: không định dạng lại bản sao lưu
-        - `NOINIT`: không ghi đè lên bản sao lưu hiện có
-        - `NAME = N'QLSV-Full Database Backup'`: tên bản sao lưu
-        - `SKIP`: bỏ qua các tập tin không thể đọc được
-        - `NOREWIND`: không đặt lại băng sau khi hoàn thành
-        - `NOUNLOAD`: không hủy bỏ băng sau khi hoàn thành
-        - `STATS = 10`: hiển thị tiến trình backup sau mỗi 10%
+    - Trong đó:
+        - `BACKUP DATABASE [QLSV]`: backup csdl `QLSV`
+        - `TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak'`: lưu vào đường dẫn `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak`
+        - `WITH NOFORMAT, NOINIT, NAME = N'QLSV-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10`: các tùy chọn khác
+            - `NOFORMAT`: không định dạng lại bản sao lưu
+            - `NOINIT`: không ghi đè lên bản sao lưu hiện có
+            - `NAME = N'QLSV-Full Database Backup'`: tên bản sao lưu
+            - `SKIP`: bỏ qua các tập tin không thể đọc được
+            - `NOREWIND`: không đặt lại băng sau khi hoàn thành
+            - `NOUNLOAD`: không hủy bỏ băng sau khi hoàn thành
+            - `STATS = 10`: hiển thị tiến trình backup sau mỗi 10%
 
-- Backup bằng UI: Chuột phải vào csdl &rarr; `Back Up`, chọn các tùy chọn sau đó bấm `Backup`
 
 #### Restore
-- Restore bằng lệnh: `RESTORE DATABASE [QLSV] FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10`
-- Trong đó
-    - `RESTORE DATABASE [QLSV]`: restore csdl `QLSV`
-    - `FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak'`: lấy từ đường dẫn `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak`
-    - `WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10`: các tùy chọn khác
-        - `FILE = 1`: chỉ định tập tin backup
-        - `NOUNLOAD`: không hủy bỏ băng sau khi hoàn thành
-        - `REPLACE`: thay thế csdl hiện có
-        - `STATS = 10`: hiển thị tiến trình restore sau mỗi 10%
 - Restore bằng UI: Chuột phải vào csdl &rarr; `Restore` &rarr; `Database`, chọn các tùy chọn sau đó bấm `Restore`
+- Restore bằng lệnh: `RESTORE DATABASE [QLSV] FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10`
+    - Trong đó
+        - `RESTORE DATABASE [QLSV]`: restore csdl `QLSV`
+        - `FROM DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak'`: lấy từ đường dẫn `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\QLSV.bak`
+        - `WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10`: các tùy chọn khác
+            - `FILE = 1`: chỉ định tập tin backup
+            - `NOUNLOAD`: không hủy bỏ băng sau khi hoàn thành
+            - `REPLACE`: thay thế csdl hiện có
+            - `STATS = 10`: hiển thị tiến trình restore sau mỗi 10%
 
 ### Xuất cơ sở dữ liệu ra file .sql script
-- Chuột phải vào csdl &rarr; `Tasks` &rarr; `Generate Scripts...` &rarr; `Next` &rarr; `Select specific database objects` &rarr; chọn các đối tượng cần xuất &rarr; `Next` &rarr; `Save to file` &rarr; `Next` &rarr; `Advanced` &rarr; `Types of data to script` &rarr; `Schema and data` &rarr; `OK` &rarr; `Next` &rarr; `Finish`
+- Trong SQL Server Management Studio, chuột phải vào csdl &rarr; `Tasks` &rarr; `Generate Scripts...` &rarr; `Next` &rarr; `Select specific database objects` &rarr; chọn các đối tượng cần xuất &rarr; `Next` &rarr; `Save to file` &rarr; `Next` &rarr; `Advanced` &rarr; `Types of data to script` &rarr; `Schema and data` &rarr; `OK` &rarr; `Next` &rarr; `Finish`
 
 ### Import cơ sở dữ liệu từ file .sql script
-- Chuột phải vào csdl &rarr; `Tasks` &rarr; `Import Data...` &rarr; `Next` &rarr; `Data source` &rarr; `Flat file source` &rarr; `Browse` &rarr; chọn file .sql script &rarr; `Next` &rarr; `Destination` &rarr; `SQL Server Native Client 11.0` &rarr; `Server name` &rarr; `Database` &rarr; `Next` &rarr; `Next` &rarr; `Finish`
+-  Trong SQL Server Management Studio, chuột phải vào csdl &rarr; `Tasks` &rarr; `Import Data...` &rarr; `Next` &rarr; `Data source` &rarr; `Flat file source` &rarr; `Browse` &rarr; chọn file .sql script &rarr; `Next` &rarr; `Destination` &rarr; `SQL Server Native Client 11.0` &rarr; `Server name` &rarr; `Database` &rarr; `Next` &rarr; `Next` &rarr; `Finish`
+
+# Thao tác với cơ sở dữ liệu trong C#
+
+## Cài đặt gói `System.Data.SqlClient`
+- Trong `Solution Explorer`, chuột phải vào dự án &rarr; `Manage NuGet Packages...` &rarr; `Browse` &rarr; `System.Data.SqlClient` &rarr; `Install`
+
+## Tạo đối tượng quản lí CSDL
+
+- Tạo một đối tượng quản lí CSDL trong dự án bằng một đối tượng theo mẫu thiết kế singleton
+```cs
+    public class DB
+    {
+        private static DB? _instance = null;
+        private SqlConnection _connection = null;
+        public string ConnectionString { get; set; } = "";
+
+        // thể hiện của đối tượng DB
+        public static DB Instance {
+            get {
+                if (_instance == null)
+                {
+                    _instance = new DB();
+                }
+    
+                return _instance;
+            }
+        }
+
+        // thể hiện của kết nối tới csdl
+        public SqlConnection? Connection { 
+            get
+            {
+                if (_connection == null)
+                {
+                    _connection = new SqlConnection(ConnectionString); ;
+                    _connection.Open();
+                }
+
+                return _connection;
+            }
+        }
+    }
+```
 
 ## 5 bước chính khi thao tác
 

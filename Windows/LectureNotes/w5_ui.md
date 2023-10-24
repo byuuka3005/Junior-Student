@@ -44,3 +44,25 @@ var password = txtPassword.Text;
 ConfigurationManager.AppSettings["username"] = username;
 ConfigurationManager.AppSettings["password"] = password;
 ```
+# Các từ khoá
+
+## `async` và `await`
+- `async` và `await` là 2 từ khoá dùng để đánh dấu một phương thức là phương thức bất đồng bộ
+- Phương thức bất đồng bộ là phương thức có thể chạy song song với các phương thức khác
+- Điểm khác biệt giữa `async` và `await` là `async` được đánh dấu trên phương thức, còn `await` được đánh dấu trên một tác vụ (task)
+
+Ví dụ sử dụng `async` và `await`:
+```cs
+private async void btnLogin_Click(object sender, RoutedEventArgs e) {
+    var username = txtUsername.Text;
+    var password = txtPassword.Text;
+    var user = await Task.Run(() => {
+        return db.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+    });
+    if(user != null) {
+        MessageBox.Show("Đăng nhập thành công");
+    } else {
+        MessageBox.Show("Đăng nhập thất bại");
+    }
+}
+```
