@@ -222,7 +222,7 @@ command.Parametes.Add("@User", OleDbType.NVarChar).Value = "";
 # Bài tập về nhà
 - Cải tiến bài tập về nhà tuần 4 với dữ liệu được lấy từ database thay vì code cứng
 
-# >>> Tuần sau >>>
+> Tuần sau >>>
 - Phân trang 
 - Trigger
 - validation
